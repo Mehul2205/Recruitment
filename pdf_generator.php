@@ -464,7 +464,7 @@ $pdf->MultiCell(120,12,$column,1,1);
 }
 }
 
-$display_heading1 = array('I','ID', 'Description');
+$display_heading1 = array('ID', 'Description');
 $sql1 ="SELECT * FROM `add_details` WHERE id='".$_SESSION['id']."';";
 $result1 = $conn->query($sql1);
 $pdf->Ln(20);
