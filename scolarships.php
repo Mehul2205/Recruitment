@@ -292,6 +292,21 @@ if (isset($_GET['title']))
 
                                         </ul>
                                     </li>
+                                      <li><a id="menu_15"><i class="fa fa-wpforms"></i> Fee Payment  <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="">
+
+
+                                            <li id="Application Details__Additional Details__Additional Details">
+                                                <a href="payment.php"></i> Pay Fee</a>
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+                                     <li>
+                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Generate PDF  </a>
+                                        
+                                    </li>
                                 </ul>
                             </div>
                         </div>

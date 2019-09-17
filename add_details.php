@@ -301,6 +301,20 @@ if($result->num_rows>0){
 
                                         </ul>
                                     </li>
+                                    <li><a id="menu_15"><i class="fa fa-wpforms"></i> Fee Payment  <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="">
+
+
+                                            <li id="Application Details__Additional Details__Additional Details">
+                                                <a href="payment.php"></i> Pay Fee</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                     <li>
+                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Generate PDF  </a>
+                                        
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -366,12 +380,7 @@ if($result->num_rows>0){
 												<div class="form-group">
 														<button type="submit" class="btn btn-primary">Submit</button>
 												</div>
-											</form>
-											<form action="pdf_generator.php">
-												<div class="form-group">
-													<button type="submit" class="btn btn-primary">Generate PDF</button>
-												</div>
-											</form>
+											
 										</div>
                                         </div>
                                     </div>

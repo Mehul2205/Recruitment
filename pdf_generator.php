@@ -179,7 +179,7 @@ $pdf->MultiCell(120,12,$column,1,1);
 }
 }
 
-$display_heading1 = array('ID', 'Thesis Title','Research Area', 'Institution','University','Year Passed','Enrollment Date','Date of Defence','Score');
+$display_heading1 = array('ID', 'Thesis Title','Research Area', 'Institution','University','Enrollment Date','Date of Defence','Score');
 $sql1 ="SELECT * FROM `phd` WHERE id='".$_SESSION['id']."';";
 $result1 = $conn->query($sql1);
 $pdf->Ln(20);
@@ -196,7 +196,7 @@ $pdf->MultiCell(120,12,$column,1,1);
 }
 }
 
-$display_heading1 = array('ID','Degree/Programme','Discipline/Major', 'Institution','University','Year Passed','Result Date','Score');
+$display_heading1 = array('I','ID','Degree/Programme','Discipline/Major', 'Institution','University','Year Passed','Result Date','Score');
 $sql1 ="SELECT * FROM `other` WHERE id='".$_SESSION['id']."';";
 $result1 = $conn->query($sql1);
 $pdf->Ln(20);
@@ -225,8 +225,8 @@ $pdf->SetFont('Arial','B',12);
 $pdf->Ln(20);
 foreach($result1 as $row) {
 foreach(array_combine($display_heading1,$row) as $display_head=>$column){
-$pdf->Cell(60,12,$display_head,1,0);
-$pdf->MultiCell(120,12,$column,1,1);
+$pdf->Cell(80,12,$display_head,1,0);
+$pdf->MultiCell(100,12,$column,1,1);
 }
 }
 
@@ -242,8 +242,8 @@ $pdf->SetFont('Arial','B',12);
 $pdf->Ln(20);
 foreach($result1 as $row) {
 foreach(array_combine($display_heading1,$row) as $display_head=>$column){
-$pdf->Cell(60,12,$display_head,1,0);
-$pdf->MultiCell(120,12,$column,1,1);
+$pdf->Cell(80,12,$display_head,1,0);
+$pdf->MultiCell(100,12,$column,1,1);
 }
 }
 
@@ -320,7 +320,7 @@ $pdf->MultiCell(120,12,$column,1,1);
 }
 
 $display_heading1 = array('I','ID','Recognition Title','Issuing Agency', 'Date');
-$sql1 ="SELECT * FROM `recognition` WHERE id='".$_SESSION['id']."';";
+$sql1 ="SELECT * FROM `Recognition` WHERE id='".$_SESSION['id']."';";
 $result1 = $conn->query($sql1);
 $pdf->Ln(20);
 $pdf->SetFont('Arial','B',13);
@@ -373,7 +373,7 @@ $pdf->MultiCell(120,12,$column,1,1);
 }
 }
 
-$display_heading1 = array('I','ID', 'Bachelor students Supervised','Masters students Supervised', 'PhD students Supervised-Total','PhD students Supervised-Sole','PhD students Supervised-Principal','PhD students Supervised-Continuing');
+$display_heading1 = array('ID', 'Bachelor students Supervised','Masters students Supervised', 'PhD students Supervised-Total','PhD students Supervised-Sole','PhD students Supervised-Principal','PhD students Supervised-Continuing');
 $sql1 ="SELECT * FROM `supervised` WHERE id='".$_SESSION['id']."';";
 $result1 = $conn->query($sql1);
 $pdf->Ln(20);
@@ -386,8 +386,8 @@ $pdf->Ln(20);
 foreach($result1 as $row) {
 $pdf->Ln(0);
 foreach(array_combine($display_heading1,$row) as $display_head=>$column){
-$pdf->Cell(60,12,$display_head,1,0);
-$pdf->MultiCell(120,12,$column,1,1);
+$pdf->Cell(80,12,$display_head,1,0);
+$pdf->MultiCell(100,12,$column,1,1);
 }
 }
 

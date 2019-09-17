@@ -4,53 +4,30 @@ session_start();
 
 $firstname=$_SESSION['name'];
 $lastname=$_SESSION['lastname'];
-$img_url="images/".$_SESSION['id'].".jpg";
 $department=$_SESSION['department'];
 $post=$_SESSION['post'];
+$img_url="images/".$_SESSION['id'].".jpg";
 if(!file_exists($img_url))
 {
     $img_url = "images/generic.jpg";
 }
-
-if(isset($_GET['degree']))
+if(isset($_GET['description']))
 {
-    $degree = $_GET['degree'];
-    $discipline = $_GET['discipline'];
-    $institute = $_GET['institute'];
-    $university = $_GET['university'];
-    $date_of_enrollment = $_GET['date_of_enrollment'];
-    $date_of_defense = $_GET['date_of_defense'];
-    $marks = $_GET['marks'];
-
-    $sql="DELETE FROM `phd` WHERE id='".$_SESSION['id']."';";
+    $sql="DELETE FROM `add_details` WHERE id='".$_SESSION['id']."';";
     $conn->query($sql);
-
-    $stmt = $conn->prepare("INSERT INTO `phd` (`id`, `degree`, `discipline`, `institute`, `university`, `date_of_enrollment`, `date_of_defense`, `marks`) VALUES (?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("ssssssss", $_SESSION['id'], $degree, $discipline, $institute, $university, $date_of_enrollment, $date_of_defense, $marks);
+    $description = $_GET['description'];
+    $stmt = $conn->prepare("INSERT INTO add_details (id,description) VALUES (?,?)");
+    $stmt->bind_param("ss", $_SESSION['id'], $description);
     $stmt->execute();
 }
-
-$sql1 = "SELECT degree,discipline,institute,university,date_of_enrollment,date_of_defense,marks FROM `phd` WHERE id='".$_SESSION['id']."';";
+$sql1 = "SELECT description FROM `add_details` WHERE id='".$_SESSION['id']."';";
 $result = $conn->query($sql1);
 if($result->num_rows>0){
 	while($row = $result->fetch_assoc()){
-    $degree1 = $row['degree'];
-    $discipline1 = $row['discipline'];
-    $institute1 = $row['institute'];
-    $university1 = $row['university'];
-    $date_of_result1 = $row['date_of_enrollment'];
-	    $date_of_defense = $row['date_of_defense'];
-    $marks1 = $row['marks'];
+		$description1 = $row["description"];
 	}
 }else{
-    $degree1 = NULL;
-    $discipline1 = NULL;
-    $institute1 = NULL;
-    $university1 =NULL;
-    $year_passed1 = NULL;
-    $date_of_result1 = NULL;
-	    $date_of_defense = NULL;
-    $marks1 = NULL;
+	$description1 = "";
 }
 
 ?>
@@ -62,7 +39,7 @@ if($result->num_rows>0){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="scroll-viewwport" content="width=device-width, initial-scale=1">
 
-    <title>PhD</title>
+    <title>Additional Details</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -314,7 +291,7 @@ if($result->num_rows>0){
                                     </li>
 
 
-                                    <li><a id="menu_14"><i class="fa fa-wpforms"></i> Additional Details <span class="fa fa-chevron-down"></span></a>
+                                    <li class="active"><a id="menu_14"><i class="fa fa-wpforms"></i> Additional Details <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="">
 
 
@@ -324,7 +301,7 @@ if($result->num_rows>0){
 
                                         </ul>
                                     </li>
-                                      <li><a id="menu_15"><i class="fa fa-wpforms"></i> Fee Payment  <span class="fa fa-chevron-down"></span></a>
+                                    <li><a id="menu_15"><i class="fa fa-wpforms"></i> Fee Payment  <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="">
 
 
@@ -343,7 +320,6 @@ if($result->num_rows>0){
                         </div>
 
                         <!-- /sidebar menu -->
-
                     </div>
                 </div>
 
@@ -379,7 +355,7 @@ if($result->num_rows>0){
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3>PhD</h3>
+                                <h3>Fee Payment</h3>
                             </div>
                         </div>
 
@@ -388,100 +364,15 @@ if($result->num_rows>0){
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Please provide your latest information for the post of <?php  echo " ".$post."(".$department.")" ?></h2>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        <div class="jumbotron">
-<form method="get" action="">    
-        
-            <div class="form-group">
-                <label for="id_degree">Thesis Title</label>
-                    
-                        <input class="form-control" id="id_degree" maxlength="150" name="degree" type="text" placeholder="<?php echo htmlspecialchars($degree1); ?>">
-                    
-                    
-            </div>
-        
-    
-        
-            <div class="form-group">
-                <label for="id_discipline">Major Research Area</label>
-                    
-                        <input class="form-control" id="id_discipline" maxlength="150" name="discipline" type="text" placeholder="<?php echo htmlspecialchars($discipline1); ?>">
-                    
-                    
-            </div>
-        
-    
-        
-            <div class="form-group">
-                <label for="id_institute">Institution</label>
-                    
-                        <input class="form-control" id="id_institute" maxlength="250" name="institute" type="text" placeholder="<?php echo htmlspecialchars($institute1); ?>">
-                    
-                    
-                        <p class="help-block"><small>If you have directly enrolled in an university, kindly provide name of the university here</small></p>
-                    
-            </div>
-        
-    
-        
-            <div class="form-group">
-                <label for="id_university">University</label>
-                    
-                        <input class="form-control" id="id_university" maxlength="250" name="university" type="text" placeholder="<?php echo htmlspecialchars($university1); ?>">
-                    
-                    
-            </div>
-    
-	
-        
-            <div class="form-group">
-                <label for="id_date_of_enrollment">Date of enrollment</label>
-                    
-                        <input class="form-control" id="id_date_of_enrollment" name="date_of_enrollment" type="date" value="<?php echo htmlspecialchars($date_of_result1); ?>">
-                    
-                    
-                        <p class="help-block"><small>Provide PhD Enrollment Date</small></p>
-                    
-            </div>
-        
-    
-        
-            <div class="form-group">
-                <label for="id_date_of_defense">Date of defense</label>
-                    
-                        <input class="form-control" id="id_date_of_defense" name="date_of_defense" type="date" value="<?php echo htmlspecialchars($date_of_defense1); ?>">
-                    
-                    
-                        <p class="help-block"><small>Provide PhD Defense Date</small></p>
-                    
-            </div>
-        
-    
-        
-            <div class="form-group">
-                <label for="id_marks">Percentage Score</label>
-                    
-                        <input class="form-control" id="id_marks" name="marks" step="0.01" type="number" placeholder="<?php echo htmlspecialchars($marks1); ?>">
-                    
-                    
-                        <p class="help-block"><small>Provide Marks obtained in the Course Work(if applicable) in Percentage. In case CGPA/DGPA is awarded please change it to percentage using norms of the awarding university</small></p>
-                    
-            </div>
-        
-    
-    <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            
-    </div>
-</form>                                        </div>
-
-
-                                        </div>
-                                    </div>
+                                        <h2>Payment link</h2>
+                                        <div class="clearfix"> </div>
+                                    
                                 </div>
+                                <div class="x_content">
+                                        <div class="jumbotron">
+                                           <a href="#" style="font-size: 40px;">Click here to pay fee</a>
+                                        </div>
+                                        </div>
                             </div>
                         </div>
                     </div>
