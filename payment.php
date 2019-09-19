@@ -23,11 +23,11 @@ if(isset($_GET['description']))
 $sql1 = "SELECT description FROM `add_details` WHERE id='".$_SESSION['id']."';";
 $result = $conn->query($sql1);
 if($result->num_rows>0){
-	while($row = $result->fetch_assoc()){
-		$description1 = $row["description"];
-	}
+    while($row = $result->fetch_assoc()){
+        $description1 = $row["description"];
+    }
 }else{
-	$description1 = "";
+    $description1 = "";
 }
 
 ?>
@@ -370,7 +370,7 @@ if($result->num_rows>0){
                                 </div>
                                 <div class="x_content">
                                         <div class="jumbotron">
-                                           <a href="#" style="font-size: 40px;">Click here to pay fee</a>
+                                           <a href="http://www.onlinesbi.com/sbicollect/icollecthome.htm" style="font-size: 40px;">Click here to pay fee</a>
                                         </div>
                                         </div>
                             </div>
