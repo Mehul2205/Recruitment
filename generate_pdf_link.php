@@ -311,13 +311,15 @@ if($result->num_rows>0){
 
                                         </ul>
                                     </li>
-                                     <li>
-                                        <form action="pdf_generator.php">
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary">Generate PDF</button>
-                                                </div>
-                                            </form>
-                                        
+                                      <li><a id="menu_16"><i class="fa fa-wpforms"></i> Submit Form <span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="">
+
+
+                                            <li id="Application Details__Additional Details__Additional Details">
+                                                <a href="pdf_page.php"></i> Submit</a>
+                                            </li>
+
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>

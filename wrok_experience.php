@@ -300,7 +300,7 @@ if ($conn->query($sql) === TRUE)
                                         </ul>
                                     </li>
                                      <li>
-                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Generate PDF  </a>
+                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Submit  </a>
                                         
                                     </li>
                                 </ul>

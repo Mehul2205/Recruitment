@@ -304,7 +304,7 @@ if(isset($_GET['title']))
                                         </ul>
                                     </li>
                                      <li>
-                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Generate PDF  </a>
+                                          <a  href="pdf_apge.php"><i class="fa fa-wpforms"></i> Submit Form  </a>
                                         
                                     </li>
                                 </ul>

@@ -312,7 +312,7 @@ if($result->num_rows>0){
                                         </ul>
                                     </li>
                                      <li>
-                                        <a  href="pdf_generator.php"><i class="fa fa-wpforms"></i> Generate PDF  </a>
+                                         <a  href="pdf_page.php"><i class="fa fa-wpforms"></i> Submit Form  </a>
                                         
                                     </li>
                                 </ul>
@@ -370,7 +370,7 @@ if($result->num_rows>0){
                                 </div>
                                 <div class="x_content">
                                         <div class="jumbotron">
-                                           <a href="http://www.onlinesbi.com/sbicollect/icollecthome.htm" style="font-size: 40px;">Click here to pay fee</a>
+                                           <a href="http://www.onlinesbi.com/sbicollect/icollecthome.html" style="font-size: 40px;">Click here to pay fee</a>
                                         </div>
                                         </div>
                             </div>
